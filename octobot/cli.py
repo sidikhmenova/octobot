@@ -2,10 +2,10 @@
     octobot <msg> [options]
 
     Options:
-        -u --incoming-webhook-url       Override incoming webhook url
-        -n --username                   Override outgoing username
-        -c --channel                    Override outgoing channel
-        -i --icon-emoji                 Override outgoing emoji
+        -u URL, --incoming-webhook-url <url>     Override incoming webhook url
+        -n NAME, --username <name>               Override outgoing username
+        -c CHANNEL, --channel <channel>          Override outgoing channel
+        -i ICON, --icon-emoji <icon>             Override outgoing emoji
 
 """
 
