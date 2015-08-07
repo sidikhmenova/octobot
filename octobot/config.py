@@ -24,14 +24,14 @@ defaults = {
 }
 
 
-def load_config(**kwargs):
+def load_config(overrides):
     config = Config(chain=True, defaults=defaults)
 
     config.locations = [
         Location.from_env_keys(env_keys),
         Location.from_path(user_config),
         Location.from_path(local_config),
-        Location.from_dict(kwargs),
+        Location.from_dict(overrides),
     ]
 
     return config

@@ -1,5 +1,5 @@
 """Usage:
-    octobot <msg> [options]
+    octobot says <msg> [options]
 
     Options:
         -u URL, --incoming-webhook-url <url>     Override incoming webhook url
@@ -11,13 +11,13 @@
 
 from __future__ import print_function
 import sys
-from pprint import pprint
 
 from docopt import docopt
 from octobot import __version__
 from octobot.config import load_config
 from octobot.utils import parse_arguments
-from octobot.utils import config_data_to_incoming_webhook_args
+
+import octobot.commands as commands
 
 
 def main():
@@ -25,26 +25,12 @@ def main():
         __doc__, version=__version__
     )
 
-    print('\narguments:')
-    print(arguments)
+    parsed_args = parse_arguments(**arguments)
+    config = load_config(parsed_args)
 
-    print('\nparsed arguments:')
-    print(parse_arguments(**arguments))
-
-    config = load_config(**parse_arguments(**arguments))
-
-    print('\nconfig data:')
-    print(config.data.OCTOBOT_INCOMING_WEBHOOK_URL)
-    print(config.data.OCTOBOT_MESSAGE)
-    print(config.data.OCTOBOT_USERNAME)
-    print(config.data.OCTOBOT_CHANNEL)
-    print(config.data.OCTOBOT_ICON_EMOJI)
-
-    print('\nconfig.data')
-    pprint(config.data.__dict__)
-
-    print('\nwebhook args')
-    print(config_data_to_incoming_webhook_args(config.data))
+    if arguments['says']:
+        commands.get('says')(config)
+        return 0
 
 
 if __name__ == "__main__":
