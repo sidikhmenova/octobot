@@ -10,5 +10,6 @@ def incoming_web_hook(url, text, username, channel, icon_emoji):
         'icon_emoji': icon_emoji
     }
 
-    print(payload)
+    # print(url)
+    # print(payload)
     return requests.post(url, data=json.dumps(payload))
