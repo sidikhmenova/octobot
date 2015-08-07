@@ -1,4 +1,4 @@
-octobot
+Octobot
 ========
 
-A very simple wrapper around Slack's Webhook integration API.
+A light wrapper and configurable cli around Slack's Incoming Web Hooks API

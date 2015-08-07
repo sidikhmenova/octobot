@@ -34,7 +34,7 @@ setup(
     entry_points=entry_points,
     name='octobot',
     version=octobot.__version__,
-    description='A very simple wrapper around Slack\'s Webhook integration API.',
+    description='A light wrapper and configurable cli around Slack\'s Incoming Web Hooks API',
     long_description=readme + '\n\n' + history,
     author='Aubrey Taylor <aubricus@gmail.com>',
     author_email='aubricus@gmail.com',

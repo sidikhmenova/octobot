@@ -3,8 +3,7 @@
 Release History
 ---------------
 
-0.0.1 (2014-01-20)
+0.0.1 (2015-08-06)
 ++++++++++++++++++
 
-**API Changes**
-**Bugfixes**
+**Initial Release**
