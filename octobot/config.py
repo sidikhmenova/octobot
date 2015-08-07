@@ -19,7 +19,7 @@ defaults = {
     'OCTOBOT_INCOMING_WEBHOOK_URL': None,
     'OCTOBOT_MESSAGE': None,
     'OCTOBOT_USERNAME': 'octobot',
-    'OCTOBOT_CHANNEL': 'general',
+    'OCTOBOT_CHANNEL': '#general',
     'OCTOBOT_ICON_EMOJI': ':octopus:'
 }
 
