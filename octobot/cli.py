@@ -1,5 +1,6 @@
 """Usage:
     octobot says <msg> [options]
+    octobot says (-a ALIAS | --alias <alias>) [options]
 
     Options:
         -a ALIAS, --alias                        Override
@@ -16,7 +17,7 @@ import sys
 from docopt import docopt
 from octobot import __version__
 from octobot.config import load_config
-from octobot.utils import parse_arguments
+from octobot.utils import config_overrides_from_arguments
 from octobot.utils import print_debug
 
 import octobot.commands as commands
@@ -27,19 +28,20 @@ def main():
         __doc__, version=__version__
     )
 
-    parsed_args = parse_arguments(**arguments)
-    config = load_config(parsed_args)
+    config = load_config(config_overrides_from_arguments(arguments))
 
     try:
         config.data.OCTOBOT_DEBUG
-        print_debug(arguments, parsed_args, config)
+        print_debug(config, arguments)
         return 0
     except:
         pass
 
-    if arguments['says']:
-        commands.get('says')(config)
-        return 0
+    if arguments['<msg>']:
+        return commands.say_message(config, arguments)
+
+    if arguments['--alias']:
+        return commands.say_aliased_message(config, arguments)
 
 
 if __name__ == "__main__":

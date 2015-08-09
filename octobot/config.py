@@ -15,14 +15,15 @@ env_keys = [
     'OCTOBOT_ICON_EMOJI',
     'OCTOBOT_ALIASES',
     'OCTOBOT_DEBUG',
+    'OCTOBOT_ALIASES',
 ]
 
 defaults = {
     'OCTOBOT_INCOMING_WEBHOOK_URL': None,
-    'OCTOBOT_MESSAGE': None,
     'OCTOBOT_USERNAME': 'octobot',
     'OCTOBOT_CHANNEL': 'general',
     'OCTOBOT_ICON_EMOJI': ':octopus:',
+    'OCTOBOT_ALIASES': []
 }
 
 

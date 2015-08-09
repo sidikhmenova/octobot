@@ -1,31 +1,29 @@
-def parse_arguments(**kwargs):
+def parse_arguments(arguments):
     parsed = {}
-    parsed['OCTOBOT_MESSAGE'] = kwargs['<msg>']
-    parsed['OCTOBOT_USERNAME'] = kwargs['--username']
-    parsed['OCTOBOT_CHANNEL'] = kwargs['--channel']
-    parsed['OCTOBOT_ICON_EMOJI'] = kwargs['--icon-emoji']
-    parsed['OCTOBOT_INCOMING_WEBHOOK_URL'] = kwargs['--incoming-webhook-url']
+    parsed['message'] = arguments['<msg>']
+    parsed['username'] = arguments['--username']
+    parsed['channel'] = arguments['--channel']
+    parsed['icon_emoji'] = arguments['--icon-emoji']
+    parsed['incoming_webhook_url'] = arguments['--incoming-webhook-url']
+    parsed['alias'] = arguments['--alias']
+
+    return parsed
+
+
+def config_overrides_from_arguments(arguments):
+    parsed = {}
+    parsed['OCTOBOT_USERNAME'] = arguments['--username']
+    parsed['OCTOBOT_CHANNEL'] = arguments['--channel']
+    parsed['OCTOBOT_ICON_EMOJI'] = arguments['--icon-emoji']
+    parsed['OCTOBOT_INCOMING_WEBHOOK_URL'] = arguments['--incoming-webhook-url']
 
     return {k: v for k, v in parsed.iteritems() if v}
 
 
-def config_data_to_incoming_webhook_args(config_data):
-    return [
-        config_data.OCTOBOT_INCOMING_WEBHOOK_URL,
-        config_data.OCTOBOT_MESSAGE,
-        config_data.OCTOBOT_USERNAME,
-        config_data.OCTOBOT_CHANNEL,
-        config_data.OCTOBOT_ICON_EMOJI,
-    ]
-
-
-def print_debug(arguments, parsed_args, config):
+def print_debug(config, arguments):
     print('\nOctobot OCTOBOT_DEBUG flag is in enabled, printing debug info...')
     print('\narguments:')
     print(arguments)
-
-    print('\nparsed_args:')
-    print(parsed_args)
 
     print('\nconfig.data')
     print(config.data.__dict__)

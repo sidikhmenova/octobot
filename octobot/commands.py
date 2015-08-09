@@ -1,15 +1,44 @@
-from octobot.utils import config_data_to_incoming_webhook_args
+from octobot.utils import parse_arguments
 from octobot.slack import incoming_web_hook
 
 
-def says(config):
-    args = config_data_to_incoming_webhook_args(config.data)
-    incoming_web_hook(*args)
+def say_message(config, arguments):
+    parsed_arguments = parse_arguments(arguments)
+    url              = config.data.OCTOBOT_INCOMING_WEBHOOK_URL
+    username         = config.data.OCTOBOT_USERNAME
+    channel          = config.data.OCTOBOT_CHANNEL
+    icon_emoji       = config.data.OCTOBOT_ICON_EMOJI
+    message          = parsed_arguments['message']
+
+    return incoming_web_hook(
+        url,
+        message,
+        username,
+        channel,
+        icon_emoji
+    )
 
 
-def get(key):
-    map = {
-        'says': says
-    }
+def say_aliased_message(config, arguments):
+    parsed_arguments = parse_arguments(arguments)
+    url              = config.data.OCTOBOT_INCOMING_WEBHOOK_URL
+    username         = config.data.OCTOBOT_USERNAME
+    channel          = config.data.OCTOBOT_CHANNEL
+    icon_emoji       = config.data.OCTOBOT_ICON_EMOJI
+    alias            = parsed_arguments['alias']
+    aliases          = config.data.OCTOBOT_ALIASES
+    aliased_message  = None
 
-    return map.get(key, None)
+    try:
+        aliased_message = aliases[alias]
+    except:
+        print('Could not find alias for key: ' + alias)
+        return -1
+
+    return incoming_web_hook(
+        url,
+        aliased_message,
+        username,
+        channel,
+        icon_emoji
+    )
