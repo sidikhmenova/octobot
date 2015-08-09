@@ -2,25 +2,27 @@ import os
 from confypy import Config
 from confypy import Location
 
-yamlConf = '.octobot/config.yaml'
-ud = os.path.expanduser('~')
-cwd = os.getcwd()
-user_config = os.path.join(ud, yamlConf)
+yamlConf     = '.octobot/config.yaml'
+ud           = os.path.expanduser('~')
+cwd          = os.getcwd()
+user_config  = os.path.join(ud, yamlConf)
 local_config = os.path.join(cwd, yamlConf)
 
 env_keys = [
     'OCTOBOT_INCOMING_WEBHOOK_URL',
     'OCTOBOT_USERNAME',
     'OCTOBOT_CHANNEL',
-    'OCTOBOT_ICON_EMOJI'
+    'OCTOBOT_ICON_EMOJI',
+    'OCTOBOT_ALIASES',
+    'OCTOBOT_DEBUG',
 ]
 
 defaults = {
     'OCTOBOT_INCOMING_WEBHOOK_URL': None,
     'OCTOBOT_MESSAGE': None,
     'OCTOBOT_USERNAME': 'octobot',
-    'OCTOBOT_CHANNEL': '#general',
-    'OCTOBOT_ICON_EMOJI': ':octopus:'
+    'OCTOBOT_CHANNEL': 'general',
+    'OCTOBOT_ICON_EMOJI': ':octopus:',
 }
 
 
