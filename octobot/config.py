@@ -15,7 +15,6 @@ env_keys = [
     'OCTOBOT_ICON_EMOJI',
     'OCTOBOT_ALIASES',
     'OCTOBOT_DEBUG',
-    'OCTOBOT_ALIASES',
 ]
 
 defaults = {
