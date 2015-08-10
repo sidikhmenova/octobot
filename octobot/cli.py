@@ -3,11 +3,18 @@
     octobot says (-a ALIAS | --alias <alias>) [options]
 
     Options:
-        -a ALIAS, --alias                        Override
+        -a ALIAS, --alias                        Supplies key for aliased messages
         -u URL, --incoming-webhook-url <url>     Override incoming webhook url
         -n NAME, --username <name>               Override outgoing username
         -c CHANNEL, --channel <channel>          Override outgoing channel
         -i ICON, --icon-emoji <icon>             Override outgoing emoji
+
+    Examples:
+
+        $ octobot says 'Hello World'                                                    Send a custom message
+        $ octobot says -a hello_world                                                   Send an aliased message:
+        $ octobot says 'Howdy!' -u http://example.com -n cowboy -c #public -i :cowboy:  Send a custom message using all command-line options
+
 
 """
 
