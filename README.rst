@@ -10,7 +10,7 @@ Requirements
     See *octobot/requirements/* for more info
 ::
 
-    confypy==0.2.3
+    confypy==0.2.5
     docopt==0.6.2
     PyYAML==3.11
     requests==2.7.0

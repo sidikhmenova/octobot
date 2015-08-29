@@ -3,6 +3,13 @@
 Release History
 ---------------
 
+0.0.5 (2015-08-27)
+++++++++++++++++++
+
+- fixes bad default config
+- bumps confypy version to 0.0.5
+
+
 0.0.4 (2015-08-09)
 ++++++++++++++++++
 
