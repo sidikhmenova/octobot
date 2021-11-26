@@ -18,7 +18,7 @@ env_keys = [
 ]
 
 defaults = {
-    'OCTOBOT_INCOMING_WEBHOOK_URL': None,
+    'OCTOBOT_INCOMING_WEBHOOK_URL': 'http://example.com',
     'OCTOBOT_USERNAME': 'octobot',
     'OCTOBOT_CHANNEL': '#general',
     'OCTOBOT_ICON_EMOJI': ':octopus:',
